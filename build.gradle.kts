@@ -37,5 +37,6 @@ fun versionBanner(): String = project.providers.exec {
 }.standardOutput.asText.map { it.trim() }.getOrElse("Unknown")
 
 fun builder(): String = project.providers.exec {
+    isIgnoreExitValue = true
     commandLine("git", "config", "user.name")
 }.standardOutput.asText.map { it.trim() }.getOrElse("Unknown")
